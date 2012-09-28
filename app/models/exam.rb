@@ -5,4 +5,5 @@ class Exam < ActiveRecord::Base
   validates :source, :presence => true
   
   belongs_to :area
+  has_many :questions
 end

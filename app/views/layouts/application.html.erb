@@ -27,7 +27,7 @@
             <ul class="nav">
               <li><%= link_to "areas", areas_path  %></li>
               <li><%= link_to "exams", exams_path  %></li>
-              <li><%= link_to "questions", "/path3"  %></li>
+              <li><%= link_to "questions", questions_path  %></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
@@ -36,17 +36,17 @@
 
     <div class="container-fluid">
       <div class="row-fluid">
-        <div class="span3">
+        <div class="span1">
           <div class="well sidebar-nav">
             <ul class="nav nav-list">
               <li class="nav-header">Sidebar</li>
               <li><%= link_to "areas", areas_path  %></li>
               <li><%= link_to "exams", exams_path  %></li>
-              <li><%= link_to "questions", "/path3"  %></li>
+              <li><%= link_to "questions", questions_path  %></li>
             </ul>
           </div><!--/.well -->
         </div><!--/span-->
-        <div class="span9">
+        <div class="span11">
           <%= yield %>
         </div>
       </div><!--/row-->

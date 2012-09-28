@@ -3,21 +3,22 @@ class ExamsController < ApplicationController
   # GET /exams.json
   def index
     @exams = Exam.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @exams }
-    end
   end
 
   # GET /exams/1
   # GET /exams/1.json
   def show
     @exam = Exam.find(params[:id])
+    @questions = @exam.questions
 
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @exam }
+    @questions.each do |q|
+      json = Hash.from_xml(q.xml).to_json
+      parsed_json = ActiveSupport::JSON.decode(json)
+
+      q.question_sentence = parsed_json['QuestionGroup']['Question']
+      q.question_message = parsed_json['QuestionGroup']['Message']
+      q.question_selection = parsed_json['QuestionGroup']['Selection']
+      q.question_answer = parsed_json['QuestionGroup']['Answer']
     end
   end
 
