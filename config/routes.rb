@@ -1,4 +1,6 @@
 Gs2::Application.routes.draw do
+  resources :exams
+
   resources :areas
 
   root :to => 'areas#index'

@@ -3,22 +3,13 @@ class AreasController < ApplicationController
   # GET /areas.json
   def index
     @areas = Area.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @areas }
-    end
   end
 
   # GET /areas/1
   # GET /areas/1.json
   def show
     @area = Area.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @area }
-    end
+    @exams = @area.exams
   end
 
   # GET /areas/new
