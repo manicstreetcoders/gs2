@@ -8,5 +8,5 @@ class Question < ActiveRecord::Base
   attr_accessor :question_selection
   attr_accessor :question_answer
 
-  default_scope: :order => 'questions.number ASC'
+  default_scope :order => 'questions.number ASC'
 end
