@@ -5,6 +5,7 @@
 <% @questions.each do |q| %>
   <% q_hash = Hash.new %>
   <% q_hash[:number] = q.number %>
+  <% q_hash[:group_number] = q.group_number %>
   <% q_hash[:point] = 1 %>
   <% q_hash[:sentence] = q.question_sentence %>
   <% q_hash[:message] = q.question_message %>
