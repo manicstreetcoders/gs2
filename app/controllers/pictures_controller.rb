@@ -44,6 +44,9 @@ class PicturesController < ApplicationController
 
     respond_to do |format|
       if @picture.save
+        base64 = ActiveSupport::Base64.encode64(open("#{@picture.image.current_path}") { |io| io.read })
+        @picture.update_attributes!(:base64 => base64)
+
         format.html { redirect_to @picture, notice: 'Picture was successfully created.' }
         format.json { render json: @picture, status: :created, location: @picture }
       else
@@ -60,6 +63,9 @@ class PicturesController < ApplicationController
 
     respond_to do |format|
       if @picture.update_attributes(params[:picture])
+        base64 = ActiveSupport::Base64.encode64(open("#{@picture.image.current_path}") { |io| io.read })
+        @picture.update_attributes!(:base64 => base64)
+
         format.html { redirect_to @picture, notice: 'Picture was successfully updated.' }
         format.json { head :no_content }
       else
