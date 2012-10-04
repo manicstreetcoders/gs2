@@ -46,3 +46,5 @@ gem 'capistrano'
 
 gem 'rabl'
 gem 'yajl-ruby'
+
+gem 'carrierwave'
