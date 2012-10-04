@@ -8,7 +8,6 @@
   <% q_hash[:group_number] = q.group_number %>
   <% q_hash[:point] = 1 %>
   <% q_hash[:sentence] = q.question_sentence %>
-  q.question_message.gsub(/\n/,'')
   <% q_hash[:message] = q.question_message %>
   <% q_hash[:selection] = q.question_selection %>
   <% q_hash[:answer] = q.question_answer %>
