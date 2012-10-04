@@ -14,3 +14,10 @@
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require_tree .
+//
+
+Mousetrap.bind('a', function() { window.location = '/areas'; });
+Mousetrap.bind('e', function() { window.location = '/exams'; });
+Mousetrap.bind('q', function() { window.location = '/questions'; });
+Mousetrap.bind('p', function() { window.location = '/pictures'; });
+Mousetrap.bind('j', function() { window.location = '/exams/1.json'; });
