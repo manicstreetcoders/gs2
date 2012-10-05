@@ -7,7 +7,7 @@
   <dt><strong><%= model_class.human_attribute_name(:title) %>:</strong></dt>
   <dd><%= @narration.title %></dd>
   <dt><strong><%= model_class.human_attribute_name(:audio) %>:</strong></dt>
-  <dd><%= audio_tag @narration.audio.url, :controls => 'controls', :id => 'player2' %>
+  <dd><%= audio_tag @narration.audio.url, :controls => 'controls' %>
   <dt><strong><%= model_class.human_attribute_name(:base64) %>:</strong></dt>
   <dd><%= @narration.base64 %></dd>
 </dl>

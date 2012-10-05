@@ -46,7 +46,7 @@ class AudioUploader < CarrierWave::Uploader::Base
   #   %w(jpg jpeg gif png)
   # end
   def extension_white_list
-    %w(mp3 mp4 ogg wav)
+    %w(mp3)
   end
 
   # Override the filename of the uploaded files:

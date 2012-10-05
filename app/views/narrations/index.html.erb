@@ -18,7 +18,7 @@
       <tr>
         <td><%= link_to narration.id, narration_path(narration) %></td>
         <td><%= narration.title %></td>
-        <td><%= audio_tag narration.audio.url, :controls => 'controls', :id => 'player2' %></td>
+        <td><%= audio_tag narration.audio.url, :controls => 'controls' %></td>
         <td><%= narration.audio.url %></td>
         <td><%=l narration.created_at %></td>
         <td>
