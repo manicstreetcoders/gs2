@@ -16,3 +16,9 @@
 
 *.swp
 .*.swp
+
+.DS_Store
+
+/public/demo
+/public/build
+/public/media

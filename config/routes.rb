@@ -1,4 +1,6 @@
 Gs2::Application.routes.draw do
+  resources :narrations
+
   resources :pictures
 
   resources :questions
