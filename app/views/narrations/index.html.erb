@@ -8,6 +8,7 @@
       <th><%= model_class.human_attribute_name(:id) %></th>
       <th><%= model_class.human_attribute_name(:title) %></th>
       <th><%= model_class.human_attribute_name(:audio) %></th>
+      <th><%= model_class.human_attribute_name(:url) %></th>
       <th><%= model_class.human_attribute_name(:created_at) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
@@ -17,7 +18,8 @@
       <tr>
         <td><%= link_to narration.id, narration_path(narration) %></td>
         <td><%= narration.title %></td>
-        <td><%= audio_tag narration.audio.url, :controls => 'controls', :id => 'player2' %>
+        <td><%= audio_tag narration.audio.url, :controls => 'controls', :id => 'player2' %></td>
+        <td><%= narration.audio.url %></td>
         <td><%=l narration.created_at %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
