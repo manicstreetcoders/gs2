@@ -17,7 +17,7 @@
       <tr>
         <td><%= link_to narration.id, narration_path(narration) %></td>
         <td><%= narration.title %></td>
-        <td><%= audio_tag narration.audio.url, :type => 'audio/mp3', :controls => 'controls', :id => 'player2' %>
+        <td><%= audio_tag narration.audio.url, :controls => 'controls', :id => 'player2' %>
         <td><%=l narration.created_at %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
