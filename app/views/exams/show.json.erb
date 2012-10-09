@@ -1,8 +1,14 @@
 <% json_a = Array.new %>
-
+<% number_str = 1 %>
 <% @questions.each do |q| %>
   <% q_hash = Hash.new %>
   <% q_hash[:number] = q.number %>
+  <% if q.is_question%>
+    <% q_hash[:number_str] = number_str.to_s %>
+    <% number_str = number_str + 1 %>
+  <% else %>
+    <% q_hash[:number_str] = "" %>
+  <% end %>
   <% q_hash[:point] = q.question_point %>
   <% q_hash[:is_question] = q.is_question %>
   <% q_hash[:sentence] = q.question_sentence %>
