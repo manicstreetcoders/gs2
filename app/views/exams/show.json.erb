@@ -7,8 +7,10 @@
   <% q_hash[:is_question] = q.is_question %>
   <% q_hash[:sentence] = q.question_sentence %>
   <% q_hash[:message] = q.question_message %>
-  <% q_hash[:selection] = q.question_selection %>
-  <% q_hash[:answer] = q.question_answer %>
+  <% if q.is_question %>
+    <% q_hash[:selection] = q.question_selection %>
+    <% q_hash[:answer] = q.question_answer %>
+  <% end %>
   <% json_a << q_hash %>
 <% end %>
 
