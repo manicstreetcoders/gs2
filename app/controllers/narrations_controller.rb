@@ -44,9 +44,6 @@ class NarrationsController < ApplicationController
 
     respond_to do |format|
       if @narration.save
-        base64 = ActiveSupport::Base64.encode64(open("#{@narration.audio.current_path}") { |io| io.read })
-        @narration.update_attributes!(:base64 => base64)
-
         format.html { redirect_to @narration, notice: 'Narration was successfully created.' }
         format.json { render json: @narration, status: :created, location: @narration }
       else
@@ -63,9 +60,6 @@ class NarrationsController < ApplicationController
 
     respond_to do |format|
       if @narration.update_attributes(params[:narration])
-        base64 = ActiveSupport::Base64.encode64(open("#{@narration.audio.current_path}") { |io| io.read })
-        @narration.update_attributes!(:base64 => base64)
-
         format.html { redirect_to @narration, notice: 'Narration was successfully updated.' }
         format.json { head :no_content }
       else
