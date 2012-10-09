@@ -17,6 +17,22 @@ class ExamsController < ApplicationController
 
       q.question_sentence = parsed_json['QuestionGroup']['Question']
       q.question_message = parsed_json['QuestionGroup']['Message']
+
+# IMAGE#title#
+      if q.question_message =~ /IMAGE#([a-zA-Z0-9]+)#/
+        tag = Picture.img_tag_by_title($1)
+        if tag 
+          q.question_message = q.question_message.gsub(/IMAGE#([a-zA-Z0-9]+)#/) do |s| 
+            tag = Picture.img_tag_by_title($1)
+            if tag 
+              tag
+            else
+              "ERROR - Image Query Failed."
+            end
+          end
+        end
+      end
+
       q.question_selection = parsed_json['QuestionGroup']['Selection']
       q.question_answer = parsed_json['QuestionGroup']['Answer']
       is_question = parsed_json['QuestionGroup']['IsQuestion']
