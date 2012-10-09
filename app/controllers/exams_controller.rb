@@ -19,6 +19,14 @@ class ExamsController < ApplicationController
       q.question_message = parsed_json['QuestionGroup']['Message']
       q.question_selection = parsed_json['QuestionGroup']['Selection']
       q.question_answer = parsed_json['QuestionGroup']['Answer']
+      is_question = parsed_json['QuestionGroup']['IsQuestion']
+      if is_question == "false"
+        q.is_question = false
+        q.question_point = 0
+      else
+        q.is_question = true
+        q.question_point = parsed_json['QuestionGroup']['Point']
+      end
     end
   end
 
