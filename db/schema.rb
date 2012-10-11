@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121005041824) do
+ActiveRecord::Schema.define(:version => 20121011052601) do
 
   create_table "areas", :force => true do |t|
     t.string   "name"
@@ -54,6 +54,14 @@ ActiveRecord::Schema.define(:version => 20121005041824) do
     t.text     "xml"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
+  end
+
+  create_table "results", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "exam_id"
+    t.integer  "score"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
 end
