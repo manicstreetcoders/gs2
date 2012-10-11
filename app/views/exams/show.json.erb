@@ -3,6 +3,11 @@
 <% @questions.each do |q| %>
   <% q_hash = Hash.new %>
   <% q_hash[:number] = q.number %>
+  <% if q.group_number %>
+    <% q_hash[:group_number] = q.group_number %>
+  <% else %>
+    <% q_hash[:group_number] = q.number %>
+  <% end %>
   <% if q.is_question%>
     <% q_hash[:number_str] = number_str.to_s %>
     <% number_str = number_str + 1 %>
