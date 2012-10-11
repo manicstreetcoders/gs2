@@ -1,3 +1,3 @@
 collection @exams
 
-attributes :id, :name, :source
+attributes :id, :name, :source, :time
