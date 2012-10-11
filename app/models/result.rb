@@ -1,3 +1,3 @@
 class Result < ActiveRecord::Base
-  attr_accessible :exam_id, :score, :user_id
+  attr_accessible :user_id_str, :exam_id, :question_id, :user_selection, :answer, :used_time
 end

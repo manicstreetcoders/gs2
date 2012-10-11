@@ -4,12 +4,18 @@
 </div>
 
 <dl class="dl-horizontal">
-  <dt><strong><%= model_class.human_attribute_name(:user_id) %>:</strong></dt>
-  <dd><%= @result.user_id %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:user_id_str) %>:</strong></dt>
+  <dd><%= @result.user_id_str %></dd>
   <dt><strong><%= model_class.human_attribute_name(:exam_id) %>:</strong></dt>
   <dd><%= @result.exam_id %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:score) %>:</strong></dt>
-  <dd><%= @result.score %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:question_id) %>:</strong></dt>
+  <dd><%= @result.question_id %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:user_selection) %>:</strong></dt>
+  <dd><%= @result.user_selection %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:answer) %>:</strong></dt>
+  <dd><%= @result.answer %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:used_time) %>:</strong></dt>
+  <dd><%= @result.used_time %></dd>
 </dl>
 
 <div class="form-actions">

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121011074803) do
+ActiveRecord::Schema.define(:version => 20121011081048) do
 
   create_table "areas", :force => true do |t|
     t.string   "name"
@@ -58,11 +58,19 @@ ActiveRecord::Schema.define(:version => 20121011074803) do
   end
 
   create_table "results", :force => true do |t|
-    t.integer  "user_id"
-    t.integer  "exam_id"
-    t.integer  "score"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.string   "user_id_str",    :null => false
+    t.integer  "exam_id",        :null => false
+    t.integer  "question_id",    :null => false
+    t.integer  "user_selection", :null => false
+    t.integer  "answer",         :null => false
+    t.boolean  "correct"
+    t.float    "used_time",      :null => false
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
   end
+
+  add_index "results", ["exam_id"], :name => "index_results_on_exam_id"
+  add_index "results", ["question_id"], :name => "index_results_on_question_id"
+  add_index "results", ["user_id_str"], :name => "index_results_on_user_id_str"
 
 end
