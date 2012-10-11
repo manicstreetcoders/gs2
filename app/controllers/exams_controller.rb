@@ -19,10 +19,10 @@ class ExamsController < ApplicationController
       q.question_message = parsed_json['QuestionGroup']['Message']
 
 # IMAGE#title#
-      if q.question_message =~ /IMAGE#([a-zA-Z0-9]+)#/
+      if q.question_message =~ /IMAGE#([a-zA-Z0-9_\-]+)#/
         tag = Picture.img_tag_by_title($1)
         if tag 
-          q.question_message = q.question_message.gsub(/IMAGE#([a-zA-Z0-9]+)#/) do |s| 
+          q.question_message = q.question_message.gsub(/IMAGE#([a-zA-Z0-9_\-]+)#/) do |s| 
             tag = Picture.img_tag_by_title($1)
             if tag 
               tag
