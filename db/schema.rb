@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121011081048) do
+ActiveRecord::Schema.define(:version => 20121011090054) do
 
   create_table "areas", :force => true do |t|
     t.string   "name"
@@ -61,7 +61,7 @@ ActiveRecord::Schema.define(:version => 20121011081048) do
     t.string   "user_id_str",    :null => false
     t.integer  "exam_id",        :null => false
     t.integer  "question_id",    :null => false
-    t.integer  "user_selection", :null => false
+    t.integer  "user_selection"
     t.integer  "answer",         :null => false
     t.boolean  "correct"
     t.float    "used_time",      :null => false
