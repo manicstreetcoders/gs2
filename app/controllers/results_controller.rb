@@ -40,15 +40,26 @@ class ResultsController < ApplicationController
   # POST /results
   # POST /results.json
   def create
-    @result = Result.new(params[:result])
-
-    respond_to do |format|
-      if @result.save
-        format.html { redirect_to @result, notice: 'Result was successfully created.' }
-        format.json { render json: @result, status: :created, location: @result }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @result.errors, status: :unprocessable_entity }
+    if params[:_json] && params[:_json].length > 0
+      json_array = params[:_json]
+      json_array.each do |j|
+        @result = Result.new(j)
+        # CRITICAL: NEED TO HANDLE ERROR.
+        @result.save
+      end
+      respond_to do |format|
+        format.json { render :json => json_array }
+      end
+    else 
+      @result = Result.new(params[:result])
+      respond_to do |format|
+        if @result.save
+          format.html { redirect_to @result, notice: 'Result was successfully created.' }
+          format.json { render json: @result, status: :created, location: @result }
+        else
+          format.html { render action: "new" }
+          format.json { render json: @result.errors, status: :unprocessable_entity }
+        end
       end
     end
   end
