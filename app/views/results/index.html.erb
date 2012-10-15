@@ -43,7 +43,7 @@
 <pre>
 To create a new record through JSON,
 i.e.
-curl -v -H "Accept: application/json" -H "Content-type: application/json" -X POST -d '{"exam_id":1,"user_id_str":"GILDONG","question_id":1,"user_selection":1,"answer":1,"used_time":5.2 }'  http://itempal.com/results
+curl -v -H "Accept: application/json" -H "Content-type: application/json" -X POST -d '[{"exam_id":1,"user_id_str":"GILDONG","question_id":1,"user_selection":1,"answer":1,"used_time":5.2 }]'  http://itempal.com/results
 </pre>
 <%= link_to t('.new', :default => t("helpers.links.new")),
             new_result_path,
