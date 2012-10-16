@@ -1,3 +1,3 @@
 collection @exams
 
-attributes :id, :name, :source, :time
+attributes :id, :name, :source, :css_url, :time

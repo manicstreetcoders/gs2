@@ -1,5 +1,5 @@
 class Exam < ActiveRecord::Base
-  attr_accessible :area_id, :name, :source, :time
+  attr_accessible :area_id, :name, :source, :css_url, :time
 
   validates :name, :presence => true, :uniqueness => true
   validates :source, :presence => true

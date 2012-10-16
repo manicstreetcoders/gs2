@@ -1,4 +1,6 @@
 class ResultsController < ApplicationController
+  respond_to :html, :json
+
   # GET /results
   # GET /results.json
   def index
@@ -45,7 +47,9 @@ class ResultsController < ApplicationController
       json_array.each do |j|
         @result = Result.new(j)
         # CRITICAL: NEED TO HANDLE ERROR.
-        @result.save
+        unless @result.save
+
+        end
       end
       respond_to do |format|
         format.json { render :json => json_array }

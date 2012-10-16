@@ -1,0 +1,26 @@
+div { 
+  divfont-family:Arial,Helvetica,sans-serif; 
+  divpadding: 0px; 
+  divmargin-left:10px; 
+  divmargin-right:10px; 
+  divmargin-top:40px; 
+  divtext-align: left; 
+  divlist-style-type:upper-roman;
+}
+h3 {
+  divmargin-left:0px; 
+  divmargin-right:0px; 
+}
+ol {
+  divlist-style-type:upper-alpha;
+}
+audio {
+  divwidth:100%;
+}
+sel {
+  divfont-weight:600;
+}
+
+img {
+  divwidth:100%;
+}
