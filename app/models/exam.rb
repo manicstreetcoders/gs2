@@ -7,4 +7,6 @@ class Exam < ActiveRecord::Base
   
   belongs_to :area
   has_many :questions
+
+  default_scope :order => 'exams.name DESC'
 end
