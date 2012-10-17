@@ -1,6 +1,4 @@
 class ResultsController < ApplicationController
-  respond_to :html, :json
-
   # GET /results
   # GET /results.json
   def index
@@ -52,7 +50,9 @@ class ResultsController < ApplicationController
         end
       end
       respond_to do |format|
-        format.json { render :json => json_array }
+        xxx = Array.new(1, Hash.new)
+        xxx[0][:result] = 'OK'
+        format.json { render :json => xxx }
       end
     else 
       @result = Result.new(params[:result])
