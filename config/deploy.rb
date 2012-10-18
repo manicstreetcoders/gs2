@@ -48,4 +48,14 @@ namespace :deploy do
     end
   end
   before "deploy", "deploy:check_revision"
+
+  task :restore_image, roles: :app do
+    run "cd #{current_path}/public && tar xvf /tmp/u.tar"
+  end
+  after "deploy", "deploy:restore_image"
+
+  task :backup_image, roles: :app do
+    run "cd #{current_path}/public && tar cvf /tmp/u.tar ./uploads"
+  end
+  before "deploy", "deploy:backup_image"
 end
