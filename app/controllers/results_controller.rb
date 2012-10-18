@@ -45,15 +45,9 @@ class ResultsController < ApplicationController
       json_array.each do |j|
         @result = Result.new(j)
         # CRITICAL: NEED TO HANDLE ERROR.
-        unless @result.save
-
-        end
+        break unless @result.save
       end
-      respond_to do |format|
-        xxx = Array.new(1, Hash.new)
-        xxx[0][:result] = 'OK'
-        format.json { render :json => xxx }
-      end
+      render :json => { :errors => @result.errors }
     else 
       @result = Result.new(params[:result])
       respond_to do |format|
