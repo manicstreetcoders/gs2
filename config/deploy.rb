@@ -50,12 +50,12 @@ namespace :deploy do
   before "deploy", "deploy:check_revision"
 
   task :restore_image, roles: :app do
-    run "cd #{current_path}/public && tar xvf /tmp/u.tar"
+    run "cd #{current_path}/public && tar xvf /home/deployer/u.tar"
   end
   after "deploy", "deploy:restore_image"
 
   task :backup_image, roles: :app do
-    run "cd #{current_path}/public && tar cvf /tmp/u.tar ./uploads"
+    run "cd #{current_path}/public && tar cvf /home/deployer/u.tar ./uploads"
   end
   before "deploy", "deploy:backup_image"
 end
