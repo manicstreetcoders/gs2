@@ -80,6 +80,7 @@ GEM
       jruby-pageant (>= 1.1.1)
     net-ssh-gateway (1.1.0)
       net-ssh (>= 1.99.1)
+    nokogiri (1.5.3)
     pg (0.14.1)
     polyglot (0.3.3)
     rabl (0.7.2)
@@ -151,6 +152,7 @@ DEPENDENCIES
   carrierwave
   coffee-rails (~> 3.2.1)
   jquery-rails
+  nokogiri
   pg
   rabl
   rails (= 3.2.7)

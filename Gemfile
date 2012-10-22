@@ -48,3 +48,5 @@ gem 'rabl'
 gem 'yajl-ruby'
 
 gem 'carrierwave'
+
+gem 'nokogiri'

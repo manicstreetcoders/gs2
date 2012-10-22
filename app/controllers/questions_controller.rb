@@ -42,6 +42,25 @@ class QuestionsController < ApplicationController
   def create
     @question = Question.new(params[:question])
 
+##### NUM_SELECTION STARTS
+    json = Hash.from_xml(@question.xml).to_json
+    parsed_json = ActiveSupport::JSON.decode(json)
+
+    question_message = parsed_json['QuestionGroup']['Message']
+
+    logger.debug "##### question_message: #{question_message}"
+
+    if (question_message) 
+      doc = Nokogiri::HTML(question_message)
+  
+      num_fastclick = doc.search('.fastclick').length
+  
+      logger.debug "##### doc.search.size: #{num_fastclick}"
+
+      @question.num_selection = num_fastclick
+    end
+##### NUM_SELECTION ENDS
+
     respond_to do |format|
       if @question.save
         format.html { redirect_to @question, notice: 'Question was successfully created.' }
@@ -57,6 +76,27 @@ class QuestionsController < ApplicationController
   # PUT /questions/1.json
   def update
     @question = Question.find(params[:id])
+
+    @temp_question = Question.new(params[:question])
+
+##### NUM_SELECTION STARTS
+    json = Hash.from_xml(@temp_question.xml).to_json
+    parsed_json = ActiveSupport::JSON.decode(json)
+
+    question_message = parsed_json['QuestionGroup']['Message']
+
+    logger.debug "##### question_message: #{question_message}"
+
+    if (question_message) 
+      doc = Nokogiri::HTML(question_message)
+  
+      num_fastclick = doc.search('.fastclick').length
+  
+      logger.debug "##### doc.search.size: #{num_fastclick}"
+  
+      params[:question][:num_selection] = num_fastclick;
+    end
+##### NUM_SELECTION ENDS
 
     respond_to do |format|
       if @question.update_attributes(params[:question])
