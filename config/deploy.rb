@@ -53,9 +53,11 @@ namespace :deploy do
     run "cd #{current_path}/public && tar xvf /home/deployer/u.tar"
   end
   after "deploy", "deploy:restore_image"
+  after "deploy:cold", "deploy:restore_image"
 
   task :backup_image, roles: :app do
     run "cd #{current_path}/public && tar cvf /home/deployer/u.tar ./uploads"
   end
   before "deploy", "deploy:backup_image"
+  before "deploy:cold", "deply:backup_image"
 end
