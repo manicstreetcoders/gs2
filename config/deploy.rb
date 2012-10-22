@@ -59,5 +59,5 @@ namespace :deploy do
     run "cd #{current_path}/public && tar cvf /home/deployer/u.tar ./uploads"
   end
   before "deploy", "deploy:backup_image"
-  before "deploy:cold", "deply:backup_image"
+  before "deploy:cold", "deploy:backup_image"
 end
