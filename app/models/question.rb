@@ -1,6 +1,7 @@
 class Question < ActiveRecord::Base
-  attr_accessible :exam_id, :group_number, :number, :xml
+  attr_accessible :exam_id, :group_number, :number, :num_selection, :xml
 
+  validates :num_selection, :presence => true
   validates :xml, :presence => true
 
   belongs_to :exam

@@ -4,6 +4,7 @@
   <% q_hash = Hash.new %>
   <% q_hash[:id] = q.id %>
   <% q_hash[:number] = q.number %>
+  <% q_hash[:num_selection] = q.num_selection %>
   <% if q.group_number %>
     <% q_hash[:group_number] = q.group_number %>
   <% else %>

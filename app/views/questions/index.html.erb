@@ -9,6 +9,7 @@
       <th><%= model_class.human_attribute_name(:exam_id) %></th>
       <th><%= model_class.human_attribute_name(:group_number) %></th>
       <th><%= model_class.human_attribute_name(:number) %></th>
+      <th><%= model_class.human_attribute_name(:num_selection) %></th>
       <th><%= model_class.human_attribute_name(:xml) %></th>
       <th><%= model_class.human_attribute_name(:created_at) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
@@ -21,6 +22,7 @@
         <td><%= question.exam_id %></td>
         <td><%= question.group_number %></td>
         <td><%= question.number %></td>
+        <td><%= question.num_selection %></td>
         <td><%= question.xml %></td>
         <td><%=l question.created_at %></td>
         <td>
