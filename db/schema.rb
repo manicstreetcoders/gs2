@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121022050313) do
+ActiveRecord::Schema.define(:version => 20121023052149) do
 
   create_table "areas", :force => true do |t|
     t.string   "name"
@@ -54,9 +54,11 @@ ActiveRecord::Schema.define(:version => 20121022050313) do
     t.integer  "group_number"
     t.integer  "number"
     t.text     "xml"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.datetime "created_at",                                  :null => false
+    t.datetime "updated_at",                                  :null => false
     t.integer  "num_selection"
+    t.decimal  "difficulty",    :precision => 8, :scale => 5
+    t.integer  "sample_size"
   end
 
   create_table "results", :force => true do |t|
