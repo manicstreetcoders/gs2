@@ -1,4 +1,19 @@
 class QuestionsController < ApplicationController
+
+  # GET /questions/recalc
+  def recalc
+    @questions = Question.all
+    @questions.each do |q|
+      n = Result.where("question_id = ?", q.id)
+      q.sample_size = n.size
+      q.save
+    end
+
+    respond_to do |format|
+      format.html { redirect_to questions_url }
+    end
+  end
+
   # GET /questions
   # GET /questions.json
   def index
