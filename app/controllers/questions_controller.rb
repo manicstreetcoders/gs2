@@ -20,7 +20,7 @@ class QuestionsController < ApplicationController
       end
       # TEMPORARY SOLUTION
       if (q.sample_size > 0)
-        q.difficulty = ok_count / q.sample_size;
+        q.difficulty = ok_count / q.sample_size * 100;
       else
         q.difficulty = 0;
       end
