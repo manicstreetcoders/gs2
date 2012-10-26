@@ -4,8 +4,18 @@ class QuestionsController < ApplicationController
   def recalc
     @questions = Question.all
     @questions.each do |q|
-      n = Result.where("question_id = ?", q.id)
-      q.sample_size = n.size
+      results = Result.where("question_id = ?", q.id)
+      q.sample_size = results.size
+
+      results.each do |r|
+        ok_count = 0;
+        fail_count = 0;
+        if (r.user_selection == answer)
+          ok_count = ok_count + 1;
+        end
+      end
+      # TEMPORARY SOLUTION
+      q.difficulty = ok_count;
       q.save
     end
 
