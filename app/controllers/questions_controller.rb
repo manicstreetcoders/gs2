@@ -10,9 +10,10 @@ class QuestionsController < ApplicationController
       results = Result.where("question_id = ?", q.id)
       q.sample_size = results.size
 
+      ok_count = 0;
+      fail_count = 0;
+
       results.each do |r|
-        ok_count = 0;
-        fail_count = 0;
         if (r.user_selection == r.answer)
           ok_count = ok_count + 1;
         end
