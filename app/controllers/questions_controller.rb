@@ -19,7 +19,7 @@ class QuestionsController < ApplicationController
         end
       end
       # TEMPORARY SOLUTION
-      q.difficulty = ok_count;
+      q.difficulty = ok_count / q.sample_size;
       q.save
     end
 
