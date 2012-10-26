@@ -2,6 +2,9 @@ class QuestionsController < ApplicationController
 
   # GET /questions/recalc
   def recalc
+    ok_count = 0;
+    fail_count = 0;
+
     @questions = Question.all
     @questions.each do |q|
       results = Result.where("question_id = ?", q.id)
