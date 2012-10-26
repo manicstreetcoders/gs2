@@ -13,7 +13,7 @@ class QuestionsController < ApplicationController
       results.each do |r|
         ok_count = 0;
         fail_count = 0;
-        if (r.user_selection == answer)
+        if (r.user_selection == r.answer)
           ok_count = ok_count + 1;
         end
       end
