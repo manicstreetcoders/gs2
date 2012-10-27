@@ -11,7 +11,7 @@
       <th><%= model_class.human_attribute_name(:number) %></th>
       <th><%= model_class.human_attribute_name(:num_selection) %></th>
       <th>
-        <%= button_to 'Difficulty Re-calc', recalc_path,
+        <%= button_to 'Recalc Difficulty', recalc_path,
         :method => 'get',
         :class => 'btn btn-mini btn-info' %>
         <%= model_class.human_attribute_name(:difficulty) %>
