@@ -11,12 +11,12 @@
       <th><%= model_class.human_attribute_name(:number) %></th>
       <th><%= model_class.human_attribute_name(:num_selection) %></th>
       <th>
+        <%= button_to 'Difficulty Re-calc', recalc_path,
+        :method => 'get',
+        :class => 'btn btn-mini btn-info' %>
         <%= model_class.human_attribute_name(:difficulty) %>
       </th>
       <th>
-        <%= button_to 'Re-calc', recalc_path,
-        :method => 'get',
-        :class => 'btn btn-mini btn-info' %>
         <%= model_class.human_attribute_name(:sample_size) %>
       </th>
       <th><%= model_class.human_attribute_name(:xml) %></th>
