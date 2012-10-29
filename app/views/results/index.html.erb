@@ -5,6 +5,11 @@
 <table class="table table-striped">
   <thead>
     <tr>
+      <%= link_to "Destroy All",
+        "#",
+        :method => :delete,
+        :data => { :confirm => 'Are you sure?' },
+        :class => 'btn btn-mini btn-danger' %>
       <th><%= model_class.human_attribute_name(:id) %></th>
       <th><%= model_class.human_attribute_name(:user_id_str) %></th>
       <th><%= model_class.human_attribute_name(:exam_id) %></th>
